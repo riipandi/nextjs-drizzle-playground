@@ -1,11 +1,15 @@
+import { db } from '@/database'
+import { type User, UserTable } from '@/database/schemas/user'
 import { jsonResponse, throwResponse } from '@/utils/response'
 
 export const revalidate = 3600
-export const runtime = 'edge'
 
 export async function GET(_req: Request) {
   try {
-    return jsonResponse('Hello, Next.js!', undefined, 200)
+    const allUsers: User[] = await db.select().from(UserTable)
+    return allUsers.length > 0
+      ? jsonResponse<User[]>(undefined, allUsers, 200)
+      : jsonResponse('No users found', undefined, 200)
   } catch (error: any) {
     return error instanceof Response
       ? throwResponse(error.status, error.statusText)

@@ -15,6 +15,7 @@
         "docker:logs": "docker logs -f $npm_package_name",
         "docker:stop": "docker stop $npm_package_name",
         "db:migrate": "ts-node database/migrate",
+        "db:seed": "ts-node database/seed",
         "db:generate": "drizzle-kit generate:pg",
         "db:check": "drizzle-kit check:pg",
         "db:up": "drizzle-kit up:pg",
