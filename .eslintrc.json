@@ -49,7 +49,7 @@
                     {
                         "groups": [
                             // Packages `react` related packages come first.
-                            ["^react", "^next(?!/?$)", "^@?\\w"],
+                            ["^dotenv", "^react", "^next(?!/?$)", "^@?\\w"],
                             // Internal packages.
                             ["^(@|components)(/.*|$)"],
                             // Side effect imports.

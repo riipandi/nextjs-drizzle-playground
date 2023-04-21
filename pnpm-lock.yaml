@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@neondatabase/serverless':
+    specifier: ^0.4.1
+    version: 0.4.1
   '@tailwindcss/aspect-ratio':
     specifier: ^0.4.2
     version: 0.4.2(tailwindcss@3.3.1)
@@ -21,7 +24,7 @@ dependencies:
     version: 16.0.3
   drizzle-orm:
     specifier: ^0.24.4
-    version: 0.24.4(postgres@3.3.4)
+    version: 0.24.4(@neondatabase/serverless@0.4.1)(postgres@3.3.4)
   drizzle-zod:
     specifier: ^0.3.2
     version: 0.3.2(drizzle-orm@0.24.4)(zod@3.21.4)
@@ -226,6 +229,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  /@neondatabase/serverless@0.4.1:
+    resolution: {integrity: sha512-KqT6XobMy+75IHiUlR7/H4seQTdAGEgkRJAb7gQvzcdlsS5+Fd5XTU9Yj+SUGcIT51rZemCs029mgySzHwEB7g==}
+    dev: false
 
   /@next/env@13.3.0:
     resolution: {integrity: sha512-AjppRV4uG3No7L1plinoTQETH+j2F10TEnrMfzbTUYwze5sBUPveeeBAPZPm8OkJZ1epq9OyYKhZrvbD6/9HCQ==}
@@ -1044,7 +1051,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.24.4(postgres@3.3.4):
+  /drizzle-orm@0.24.4(@neondatabase/serverless@0.4.1)(postgres@3.3.4):
     resolution: {integrity: sha512-mQzuqEHqc2NGN20ACc0NAaFaHlQlTZquoK42xJ8TRSntzAVz4iSDksozVJKBXig+qKgZA9C7KpWCDRo9+NMgng==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -1100,6 +1107,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
+      '@neondatabase/serverless': 0.4.1
       postgres: 3.3.4
     dev: false
 
@@ -1109,7 +1117,7 @@ packages:
       drizzle-orm: '>=0.23.13'
       zod: '*'
     dependencies:
-      drizzle-orm: 0.24.4(postgres@3.3.4)
+      drizzle-orm: 0.24.4(@neondatabase/serverless@0.4.1)(postgres@3.3.4)
       zod: 3.21.4
     dev: false
 

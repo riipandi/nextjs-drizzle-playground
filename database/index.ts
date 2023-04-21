@@ -1,15 +1,21 @@
 import dotenv from 'dotenv'
+import { Pool as NeonPool } from '@neondatabase/serverless'
 import { PgTimestampConfig, serial, timestamp, uuid } from 'drizzle-orm/pg-core'
-import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js'
-import { drizzle } from 'drizzle-orm/postgres-js'
+import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js'
 import { sql } from 'drizzle-orm/sql'
 import postgres from 'postgres'
 
 dotenv.config()
 
-export const pgClient = postgres(process.env.DATABASE_URL!, {
+export const driver = process.env.DATABASE_DRIVER || 'postgres'
+
+export const pg = postgres(process.env.DATABASE_URL!, {
   /* options */
 })
+
+export const neonPool = new NeonPool({ connectionString: process.env.DATABASE_URL! })
+
+export const pgClient = process.env.DATABASE_DRIVER === 'neon' ? neonPool : pg
 
 export const db: PostgresJsDatabase = drizzle(pgClient, {
   // logger: process.env.NODE_ENV !== 'production',

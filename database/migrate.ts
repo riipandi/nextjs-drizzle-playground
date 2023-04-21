@@ -1,9 +1,9 @@
 import { migrate } from 'drizzle-orm/postgres-js/migrator'
 import { join } from 'path'
 
-import { db } from '.'
+import { db, driver } from '.'
 
-console.info(`🏃 Running database migration...`)
+console.info(`🏃 Running database migration (driver: ${driver})...`)
 console.info(`🏃 Database connection string: ${process.env.DATABASE_URL}`)
 
 // this will automatically run needed migrations on the database
