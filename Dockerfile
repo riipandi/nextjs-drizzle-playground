@@ -35,10 +35,15 @@ ENV PORT 3000
 COPY --from=deps --chown=node:node /app/package.json ./package.json
 COPY --from=deps --chown=node:node /app/package-lock.json ./package-lock.json
 COPY --from=deps --chown=node:node /app/node_modules ./node_modules
+
 # Automatically leverage output traces to reduce image size (https://s.id/1Gplb)
 COPY --from=builder --chown=node:node /app/next.config.js ./next.config.js
 COPY --from=builder --chown=node:node /app/public ./public
 COPY --from=builder --chown=node:node /app/.next ./.next
+
+# Requied for Drizzle migration
+COPY --from=builder --chown=node:node /app/drizzle.config.json ./drizzle.config.json
+COPY --from=builder --chown=node:node /app/database ./database
 
 EXPOSE $PORT
 
