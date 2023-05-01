@@ -22,6 +22,7 @@ Take a look at the following resources:
 
 -   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 -   [Drizzle ORM Documentation](https://github.com/drizzle-team/drizzle-orm) - learn about Drizzle ORM.
+-   [Drizzle - An ORM that lets you just write SQL](https://www.propelauth.com/post/drizzle-an-orm-that-lets-you-just-write-sql)
 
 ## Database Migration
 
